@@ -1,0 +1,43 @@
+version: '2'
+services:
+  akademija:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    privileged: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - default
+
+  mailcatcher:
+    build: ./external_services/MailCatcher   
+    ports: 
+      - "1025:25"        
+    environment:
+      - VIRTUAL_HOST=mailcatcher.local
+    networks:
+      - default
+
+  mysql:
+    build: ./external_services/MySQL
+    environment:
+     - MYSQL_ROOT_PASSWORD=root         
+    ports:
+     - "3306:3306"   
+    networks:
+      - default
+       
+  phpmyadmin:
+    links:
+     - mysql
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "7070:80"
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - PMA_HOST=mysql
+    networks:
+      - default
