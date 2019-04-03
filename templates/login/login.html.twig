@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PortfolioController!{% endblock %}
+
+{% block body %}
+    <div>
+        {% if errors %}
+            <div>{{ error.messageKey }}</div>
+        {% endif %}
+        <form action="{{ path('login') }}" method="post">
+            <Label for="username">Username</Label>
+            <input type="text" name="_username" id="username" value="{{ username }}">
+
+            <Label for="email">Email</Label>
+            <input type="text" name="_email" id="email">
+
+            <Label for="username">Password</Label>
+            <input type="text" name="_password" id="password">
+
+            <button>Login</button>
+        </form>
+
+    </div>
+{% endblock %}

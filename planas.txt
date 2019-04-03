@@ -1,0 +1,16 @@
+Planas
+
+kontroleris su routes
+modelis
+schema duomenu bazei
+migracija
+vaizdas su susisiekimo forma
+vaizdas administratotiui
+susisikiemo formos funkcianalumas
+susisiekimo formos validacija
+administratoriaus funkcionalumas matyti žinutes, jas ištrinti
+prisijungimo vaizdas
+administratoriaus authentikacija prisijungimui
+porfolio su React
+css
+pataisymai

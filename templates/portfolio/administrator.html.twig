@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if messages %}
+       <ul>
+           {% for message in messages %}
+           <li>
+             <div><a  href="/message/{{ message.id }}"> {{ message.Name }}</a></div>
+             <div> {{ message.email }}</div>
+             <div> {{ message.phoneNumber }}</div>
+             <div> {{ message.message }} </div>
+           </li>
+       </ul>
+        {%  endfor %}
+    {% else %}
+        <p>There are no messages</p>
+    {% endif %}
+{% endblock %}
