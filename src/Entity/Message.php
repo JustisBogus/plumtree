@@ -27,7 +27,7 @@ class Message
     private $name;
 
     /**
-     * @ORM\Column(type="text", length=25)
+     * @ORM\Column(type="text", length=25, nullable=true)
      */
     private $phoneNumber;
     /**

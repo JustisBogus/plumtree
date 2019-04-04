@@ -4,12 +4,10 @@
 
 {% block body %}
     <div>
-        {% if errors %}
-            <div>{{ error.messageKey }}</div>
-        {% endif %}
+
         <form action="{{ path('login') }}" method="post">
             <Label for="username">Username</Label>
-            <input type="text" name="_username" id="username" value="{{ username }}">
+            <input type="text" name="_username" id="username" >
 
             <Label for="email">Email</Label>
             <input type="text" name="_email" id="email">
