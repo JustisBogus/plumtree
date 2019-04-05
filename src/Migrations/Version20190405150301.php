@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190404194247 extends AbstractMigration
+final class Version20190405150301 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,8 @@ final class Version20190404194247 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE message CHANGE phone_number phone_number TINYTEXT DEFAULT NULL, CHANGE message message TEXT NOT NULL');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('DROP TABLE message');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +31,7 @@ final class Version20190404194247 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE message CHANGE phone_number phone_number TINYTEXT NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE message message TEXT DEFAULT NULL COLLATE utf8mb4_unicode_ci');
+        $this->addSql('CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, email TINYTEXT NOT NULL COLLATE utf8mb4_unicode_ci, name TINYTEXT NOT NULL COLLATE utf8mb4_unicode_ci, phone_number TINYTEXT DEFAULT NULL COLLATE utf8mb4_unicode_ci, message TEXT NOT NULL COLLATE utf8mb4_unicode_ci, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB COMMENT = \'\' ');
+        $this->addSql('DROP TABLE user');
     }
 }

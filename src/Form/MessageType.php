@@ -23,7 +23,7 @@ class MessageType extends AbstractType
             ->add('email', EmailType::class)
             ->add('phoneNumber', TextType::class, array(
                 'required' => false
-               ))
+            ))
             ->add('message', TextareaType::class)
             ->add('Send', SubmitType::class, [
                 'label' => 'Send',

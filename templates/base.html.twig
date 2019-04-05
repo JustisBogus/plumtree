@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-    <html lang="en">
-     <head>
-            <meta charset="UTF-8">
-            <title>{% block title %}Welcome!{% endblock %}</title>
-                {% block stylesheets %}{% endblock %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {{ include('includes/header.html.twig') }}
+    {{ include('includes/header.html.twig') }}
         <h1>Hello I am test controller view</h1>
         {% block body %}{% endblock %}
         <div id="root"></div>
         {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -6,7 +6,6 @@ use App\Entity\Message;
 use App\Form\MessageType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,28 +18,15 @@ class PortfolioController extends AbstractController
      * @param Request $request
      */
     public function getIndex(Request $request) {
-
-        $message = new Message();
-
-        $form = $this->createForm(MessageType::class, $message);
-
+        $message = new Message();$form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $message = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($message);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('home');
+        if ($form->isSubmitted() && $form->isValid()) {$message = $form->getData();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($message);
+        $entityManager->flush();
+        return $this->redirectToRoute('home');
         }
-
-        return $this->render('portfolio/index.html.twig', array(
-            'form' => $form->createView()
-        ));
-    }
-
+        return $this->render('portfolio/index.html.twig', array('form' => $form->createView()));}
 
     /**
      * @Route("/administrator", name="administrator")
@@ -54,34 +40,24 @@ class PortfolioController extends AbstractController
     }
 
     /**
-     * @Route("/save")
+     * @Route("/signup", name="signup")
      */
-    public function save() {
-        $entityManager = $this->getDoctrine()->getManager();
 
-        $message = new Message();
-        $message->setEmail('Message 1');
-        $message->setName('Name 1');
-        $message->setPhoneNumber('Phone Number 1');
-        $message->setMessage('Message 1');
-
-        $entityManager->persist($message);
-
-        $entityManager->flush();
-
-        return new Response('Saved message'.$message->getId());
+    public function signUp()
+    {
+        return $this->render('register/index.html.rwig', [
+            'controller_name' => 'PortfolioController',
+        ]);
     }
 
     /**
-     * @Route("/message/{id}",name="show_message")
+     * @Route("/logout", name="logout")
      */
-    public function show($id) {
-        $message = $this->getDoctrine()->getRepository(Message::class)->find($id);
+    public function logout()
+    {
 
-        return $this->render('portfolio/message.html.twig', array('message' => $message));
     }
 
 
 
 }
-

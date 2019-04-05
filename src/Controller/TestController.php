@@ -16,5 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestController extends AbstractController
 {
 
-
+    /**
+     * @Route("/", name="index")
+     */
+    public function indexAction()
+    {
+        return $this->render('base.html.twig');
+    }
 }

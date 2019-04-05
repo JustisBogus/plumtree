@@ -1,3 +1,6 @@
 <div>
     Header
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div><a href="{{ logout_path() }}">Logout</a></div>
+    {% endif %}
 </div>
