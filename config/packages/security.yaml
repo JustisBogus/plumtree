@@ -1,12 +1,12 @@
 security:
     encoders:
-        AppBundle\Entity\User:
+        App\Entity\User:
             algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         db_provider:
             entity:
-                 class: AppBundle:User
+                 class: App:User
                  property: email
        # in_memory: { memory: ~ }
     firewalls:
@@ -15,6 +15,11 @@ security:
             security: false
         main:
             anonymous: true
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path: logout
 
             # activate different ways to authenticate
 
@@ -29,8 +34,5 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        form_login:
-            path: login
 
-        logout:
-            path: logout
+
