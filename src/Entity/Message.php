@@ -31,6 +31,8 @@ class Message
      */
     private $phoneNumber;
     /**
+     * @var string
+     *
      * @ORM\Column(type="text", length=1000)
      */
     private $message;
