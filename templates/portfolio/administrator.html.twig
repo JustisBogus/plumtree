@@ -1,18 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="messagesContainer">
+    <div class="messagesWrap">
     {% if messages %}
-        <ul>
+
         {% for message in messages %}
-            <li>
-                <div><a  href="/message/{{ message.id }}"> {{ message.Name }}</a></div>
-                <div> {{ message.email }}</div>
-                <div> {{ message.phoneNumber }}</div>
-                <div> {{ message.message }} </div>
-            </li>
-            </ul>
+            <div class="messageWrap">
+                <div class = "messageName"> {{ message.Name }}</div>
+                <div class = "messageEmail"> {{ message.email }}</div>
+                <div class = "messagePhoneNumber"> {{ message.phoneNumber }}</div>
+                <div class = "messageContent"> {{ message.message }} </div>
+            </div>
         {%  endfor %}
     {% else %}
         <p>There are no messages</p>
     {% endif %}
+    </div>
+    <div>
 {% endblock %}
