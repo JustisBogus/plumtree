@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import './Main.css';
+import './Main.scss';
 import Card1 from './Cards/Card1';
 import Card2 from './Cards/Card2';
+import Card3 from './Cards/Card3';
+import Card4 from './Cards/Card4';
 
 class Main extends Component {
     constructor (props) {
@@ -16,23 +18,16 @@ class Main extends Component {
 
         return (
             <div>
-                <div style={mainTitle} > Main Title </div>
+                <div className="mainTitle" > Main Title </div>
                 <div>
                     <Card1 />
                     <Card2 />
+                    <Card3 />
+                    <Card4 />
                 </div>
             </div>
         );
     }
 }
-
-
-  const mainTitle = {
-    margin: "auto",
-    fontFamily: "Helvetica sans-serif",
-    fontSize: 36,
-    textAlign: "center",
-    }
-
 
 export default Main;

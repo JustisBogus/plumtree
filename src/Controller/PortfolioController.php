@@ -23,7 +23,8 @@ class PortfolioController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function getIndex(Request $request, EventDispatcherInterface $dispatcher) {
-        $message = new Message();$form = $this->createForm(MessageType::class, $message);
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {$message = $form->getData();
         $entityManager = $this->getDoctrine()->getManager();

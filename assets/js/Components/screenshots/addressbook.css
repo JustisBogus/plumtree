@@ -1,0 +1,9 @@
+.addressbook {
+    width:100%;
+    height:300px;
+    float:left;
+}
+
+.addressbook img {
+    height:300px;
+}

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './Cards.scss';
+import Gymapp1 from '../screenshots/gymapp1';
+import Gymapp2 from '../screenshots/gymapp2';
 
 class Card1 extends Component {
     constructor (props) {
@@ -33,107 +36,60 @@ class Card1 extends Component {
 
 
     if(this.state.cardFlipped) {
-        card = <div onClick={() => this.onFlipCardBack()} style={card1}>
-            <ul>
-                <li>
-                    <div>Client</div>
-                    <div>Alto Gym</div>
-                </li>
-                <li>
-                    <div>Project</div>
-                    <div>Workout Creation Mobile App</div>
-                </li>
-                <li>
-                    <div>Technologies Used</div>
+        card = <div onClick={() => this.onFlipCardBack()} className="card">
+            <div className="cardContent">
+
+                    <div className="cardTextTitle1">Client</div>
+                    <div className="cardText">Alto Gym</div>
+
+                    <div className="cardTextTitle1">Project</div>
+                    <div className="cardText"> Mobile Workout Sharing App </div>
+                    <div className="cardTextTitle1">Technologies Used</div>
                     <div>
-                        <div>React Native</div>
-                        <div>React</div>
-                        <div>Redux</div>
+                        <div className="cardText">React Native</div>
+                        <div className="cardText">React</div>
+                        <div className="cardText">Redux</div>
                     </div>
-                </li>
-            </ul>
+            </div>
         </div>
 
-        description = <div style={descriptionArea}>
-            <div style={descriptionLink1}
-            onClick={() => this.onTryItLink}>Try It</div>
-            <div style={descriptionLink2}
+        description = <div className="descriptionArea1Flipped">
+            <div className="descriptionText">Gym trainer creates workouts and exercises using the workout creation
+                web app and sends them to their customers mobile app
+            </div>
+                <div className="screenshots">
+                <Gymapp2/>
+                <Gymapp1/>
+                </div>
+            <div className="descriptionLinkTop1"
+            onClick={() => this.onTryItLink()}>Try It</div>
+            <div className="descriptionLinkBottom1"
             onClick={() => this.onGitHubLink()}>Code on GitHub</div>
         </div>
 
 
     } else {
-        card = <div onClick={() => this.onFlipCardUp()} style={card1}>
-            <div style={cardTitle}> Gym Mobile App </div>
+        card = <div onClick={() => this.onFlipCardUp()} className="card">
+            <div className="card1Title">Mobile Gym App</div>
         </div>
 
-        description = <div style={descriptionArea}>
-            <div style={descriptionTitle}>Some word</div>
+        description = <div className="descriptionArea1">
+            <div className="description1Title">Some word</div>
         </div>
 
     }
 
         return (
-            <div style={card1Container}>
-                <div style={cardWrap}>
+            <div className="cardContainer">
+                <div className="cardWrap">
                     {card}
                 </div>
-                    <div style={descriptionWrap}>
+                    <div className="descriptionWrap">
                         {description}
                     </div>
             </div>
         );
     }
-}
-
-
-const card1Container = {
-    flex:1,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    fontFamily: "Helvetica sans-serif",
-    fontSize: 14,
-    textAlign: "center",
-}
-
-const cardWrap = {
-    width: "25%",
-    height: 300,
-}
-
-const card1 = {
-    width: 200,
-    borderWidth: 1,
-    borderColor: "#1594ab",
-    cursor:"pointer"
-}
-
-const descriptionWrap = {
-    width: "50%",
-    height: 300,
-}
-
-const descriptionArea = {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: "#1594ab"
-}
-
-const descriptionTitle = {
-    marginTop: 70,
-}
-
-const descriptionLink1 = {
-    marginTop: 120,
-    cursor:"pointer"
-}
-const descriptionLink2 = {
-    cursor:"pointer"
-}
-
-const cardTitle = {
-    marginTop: 70,
 }
 
 export default Card1;
