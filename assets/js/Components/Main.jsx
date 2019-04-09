@@ -18,7 +18,8 @@ class Main extends Component {
 
         return (
             <div>
-                <div className="mainTitle" > Main Title </div>
+                <div className="mainTitleName" > Justis </div>
+                <div className="mainTitle"> Full stack developer, minimalist.</div>
                 <div>
                     <Card1 />
                     <Card2 />

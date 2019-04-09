@@ -2,29 +2,33 @@ import React, { Component } from 'react';
 import './Cards.scss';
 import Gymapp1 from '../screenshots/gymapp1';
 import Gymapp2 from '../screenshots/gymapp2';
+import { connect } from 'react-redux';
+import { flipCard, flipCardBack } from '../../store/actions/cards';
 
 class Card1 extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
-            cardFlipped:false
+
         }
     }
 
     onFlipCardUp() {
-        this.setState({cardFlipped:true});
+        this.props.onCardFlipped();
     }
 
     onFlipCardBack() {
-        this.setState({cardFlipped:false});
+        this.props.onCardFlippedBack();
     }
 
     onTryItLink() {
+        this.props.onCardFlipped();
        // window.open("");
     }
 
     onGitHubLink() {
+        this.props.onCardFlipped();
         window.open("https://github.com/JustisBogus/mobilegymapp");
         window.open("https://github.com/JustisBogus/gymtrainer");
     }
@@ -35,7 +39,7 @@ class Card1 extends Component {
         let description;
 
 
-    if(this.state.cardFlipped) {
+    if(this.props.cardFlipped) {
         card = <div onClick={() => this.onFlipCardBack()} className="card">
             <div className="cardContent">
 
@@ -74,7 +78,7 @@ class Card1 extends Component {
         </div>
 
         description = <div className="descriptionArea1">
-            <div className="description1Title">Some word</div>
+            <div className="descriptionTitle1">Native Apps</div>
         </div>
 
     }
@@ -92,4 +96,17 @@ class Card1 extends Component {
     }
 }
 
-export default Card1;
+const mapStateToProps = state => {
+    return {
+       cardFlipped: state.cards.cardFlipped,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onCardFlipped: () => dispatch(flipCard()),
+        onCardFlippedBack: () => dispatch(flipCardBack())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card1);

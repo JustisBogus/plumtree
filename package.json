@@ -17,5 +17,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "react-redux": "^7.0.1",
+        "redux": "^4.0.1"
     }
 }

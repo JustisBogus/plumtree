@@ -1,5 +1,5 @@
 <div class="header">
-    Header
+    <img class="logo" src="{{ asset('assets/punktl.png') }}" />
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="headerLogout"><a href="{{ logout_path() }}">Logout</a></div>
     {% endif %}

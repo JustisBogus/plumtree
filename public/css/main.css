@@ -1,7 +1,17 @@
 body {
     margin: 0;
     padding: 0;
-    background-color:#f2f2f2;
+    background-image: linear-gradient(90deg, #eee, #f2f2f2, #fafafa);
+}
+
+.logo {
+    width:20px;
+    height:20px;
+    color: #f1f1f1;
+    top:5px;
+    bottom:5px;
+    margin-left:20px;
+    border-radius:25px 25px 25px 25px;
 }
 
 .title {

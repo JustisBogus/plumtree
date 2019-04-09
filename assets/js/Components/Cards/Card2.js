@@ -71,7 +71,7 @@ class Card2 extends Component {
             </div>
 
             description = <div className="descriptionArea2">
-                <div className="description2Title">Some word 2</div>
+                <div className="descriptionTitle2">Front End</div>
             </div>
 
         }
