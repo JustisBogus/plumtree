@@ -1,1 +1,0 @@
-export { flipCard, flipCardBack } from './cards';

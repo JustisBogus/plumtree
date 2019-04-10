@@ -48,17 +48,6 @@ class PortfolioController extends AbstractController
     }
 
     /**
-     * @Route("/signup", name="signup")
-     */
-
-    public function signUp()
-    {
-        return $this->render('register/index.html.rwig', [
-            'controller_name' => 'PortfolioController',
-        ]);
-    }
-
-    /**
      * @Route("/logout", name="logout")
      */
     public function logout()

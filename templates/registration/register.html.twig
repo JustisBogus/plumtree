@@ -4,17 +4,6 @@
 
 {% block body %}
 <div class="loginFormContainer">
-    <div class="loginFormTitle">Sign In</div>
-        {{ form_start(registrationForm) }}
-    <div class="loginFormItem">
-        {{ form_widget(registrationForm.email) }}
-    </div>
-    <div class="loginFormItem">
-        {{ form_widget(registrationForm.plainPassword) }}
-    </div>
-    <div class="loginFormButton">
-        <button>Sign In</button>
-    </div>
-    {{ form_end(registrationForm) }}
+    <div class="registerAdmin">Administrator Only</div>
 </div>
 {% endblock %}
