@@ -26,7 +26,9 @@ class PortfolioController extends AbstractController
         $message = new Message();
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {$message = $form->getData();
+        if ($form->isSubmitted() && $form->isValid())
+        {
+        $message = $form->getData();
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($message);
         $entityManager->flush();
