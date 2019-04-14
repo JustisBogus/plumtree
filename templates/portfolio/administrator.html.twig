@@ -3,18 +3,17 @@
 {% block body %}
     <div class="messagesContainer">
     <div class="messagesWrap">
-    {% if messages %}
+    {% if users %}
 
-        {% for message in messages %}
+        {% for user in users %}
             <div class="messageWrap">
-                <div class = "messageName"> {{ message.Name }}</div>
-                <div class = "messageEmail"> {{ message.email }}</div>
-                <div class = "messagePhoneNumber"> {{ message.phoneNumber }}</div>
-                <div class = "messageContent"> {{ message.message }} </div>
+                <div class = "messageName"> {{ user.username }}</div>
+                <div class = "messageEmail"> {{ user.fullName }}</div>
+                <div class = "messagePhoneNumber"> {{ user.email }}</div>
             </div>
         {%  endfor %}
     {% else %}
-        <p>There are no messages</p>
+        <p>There are no users</p>
     {% endif %}
     </div>
     <div>

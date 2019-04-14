@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} CV index {% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('notice') %}
+        <div>{{ message }}</div>
+    {% endfor %}
+    {% for id, cv in cvs  %}
+       {{ include('cv/cv_component.html.twig', {'cv': cv }) }}
+    {% endfor %}
+{% endblock %}

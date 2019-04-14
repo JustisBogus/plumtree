@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} CV {% endblock %}
+
+{% block body %}
+        <p>ID {{ cv.id }}</p>
+        <h3>{{ cv.name|upper }}</h3>
+        <p>{{ cv.about }}</p>
+        {{ 560|price }}
+        Here is the current locale {{ locale }}
+
+{% endblock %}

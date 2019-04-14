@@ -19,6 +19,30 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function findAllUsers() {
+
+        return $this->getFindAllUsers()
+                ->getQuery()
+                ->getResult();
+    }
+
+    public function findAllUsersExceptAdmin(User $user)
+    {
+        return $this->getFindAllUsers()
+                ->andHaving('users != :user')
+                ->setParameter('user', $user)
+                ->getQuery()
+                ->getResult();
+    }
+
+    public function getFindAllUsers()
+    {
+        $queryBuilder = $this->createQueryBuilder('users');
+
+        return $queryBuilder->select('users')
+            ->orderBy('users.fullName' ,'ASC');
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

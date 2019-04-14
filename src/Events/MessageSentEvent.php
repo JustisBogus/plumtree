@@ -10,18 +10,18 @@ class MessageSentEvent extends Event
     /**
      * @var Message $_message
      */
-    private $_message;
+    private $message;
 
     const NAME = "message.sent";
 
     public function __construct(Message $message)
     {
-        $this-> _message = $message;
+        $this->message = $message;
     }
 
     public function getMessage()
     {
-        return $this->_message;
+        return $this->message;
     }
 
 }

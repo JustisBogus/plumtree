@@ -1,0 +1,9 @@
+<p><a href="{{ path('view_cv', {'id': cv.id}) }}">ID {{ cv.id }}</a></p>
+<a href="{{ path('cv_user', {'username' : cv.user.username}) }}">{{ cv.user.fullName }}</a>
+<p>{{ cv.about }}</p>
+        {% if is_granted('edit', cv ) %}
+<p><a href="{{ path('edit_cv', {'id': cv.id}) }}">Edit {{ cv.id }}</a></p>
+        {% endif %}
+        {% if is_granted('delete', cv ) %}
+<p><a href="{{ path('delete_cv', {'id': cv.id}) }}">Delete {{ cv.id }}</a></p>
+        {% endif %}

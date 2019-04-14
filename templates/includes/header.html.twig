@@ -1,6 +1,10 @@
 <div class="header">
     <img class="logo" src="{{ asset('assets/punktl.png') }}" />
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('add_cv') }}">Create a new CV</a>
         <div class="headerLogout"><a href="{{ logout_path() }}">Logout</a></div>
+        <div class="headerLogout">{{ app.user.username }}</div>
+        {% else %}
+            <div class="headerLogout"><a href="{{ path('app_login') }}">Sign In</a></div>
     {% endif %}
 </div>
