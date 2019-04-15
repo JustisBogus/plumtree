@@ -23,7 +23,7 @@ class CVRepository extends ServiceEntityRepository
     public function findAllCVs()
     {
         $queryBuilder = $this->createQueryBuilder('cv');
-        return $queryBuilder->select('cv')->andWhere('cv.active = true' )
+        return $queryBuilder->select('cv')->where('cv.active = true' )
                 ->orderBy('cv.id' ,'DESC')
                 ->getQuery()
                 ->getResult();

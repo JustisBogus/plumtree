@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39b1a996aad61b214abaa37d89e1da9d",
+    "content-hash": "b0d9d7fddeb4c0cb1a57e7d93c9c3ec7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4694,16 +4694,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.2.4",
+            "version": "v4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "748464177a77011f8f4cdd076773862ce4915f8f"
+                "reference": "e46933cc31b68f51f7fc5470fb55550407520f56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/748464177a77011f8f4cdd076773862ce4915f8f",
-                "reference": "748464177a77011f8f4cdd076773862ce4915f8f",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/e46933cc31b68f51f7fc5470fb55550407520f56",
+                "reference": "e46933cc31b68f51f7fc5470fb55550407520f56",
                 "shasum": ""
             },
             "require": {
@@ -4763,7 +4763,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-27T03:31:50+00:00"
+            "time": "2019-04-01T14:13:08+00:00"
         },
         {
             "name": "symfony/twig-bridge",
@@ -6177,16 +6177,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v4.2.4",
+            "version": "v4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "2cc651a38fcb831a405c14fcb76fcb00320e7ee8"
+                "reference": "8796da921e4613352818b478e9bb0803ea0dbb9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2cc651a38fcb831a405c14fcb76fcb00320e7ee8",
-                "reference": "2cc651a38fcb831a405c14fcb76fcb00320e7ee8",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/8796da921e4613352818b478e9bb0803ea0dbb9a",
+                "reference": "8796da921e4613352818b478e9bb0803ea0dbb9a",
                 "shasum": ""
             },
             "require": {
@@ -6238,7 +6238,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2019-02-18T06:49:49+00:00"
+            "time": "2019-03-26T20:16:42+00:00"
         },
         {
             "name": "symfony/profiler-pack",

@@ -1,11 +1,14 @@
 <?php
 
-class MessageTest extends PHPUnit_Framework_TestCase
-{
-    public function testGetEmail()
-    {
-        $this->assertTrue(true);
 
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+
+
+class MessageTest extends TestCase
+{
+
+    public function testEmail()
+    {
 
     }
 }

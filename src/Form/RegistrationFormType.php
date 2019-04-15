@@ -6,6 +6,7 @@ use App\Entity\User;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -53,7 +54,11 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Password'
                 ]
             ])
-        ;
+            ->add('picture', FileType::class, [
+                    'required' => false,
+                    'mapped' => false,
+                    'label' => 'Your Picture'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

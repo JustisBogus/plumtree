@@ -51,6 +51,11 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\File(mimeTypes={ "application/jpg" })
+     */
+    private $picture;
 
     /**
      * #ORM\OneToMany(targetEntity="App\Entity\CV", mappedBy="user")
@@ -60,6 +65,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->cvs = new ArrayCollection();
+        $this->roles = [self::ROLE_USER];
     }
 
 
@@ -161,6 +167,18 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
 
         return $this;
     }

@@ -76,6 +76,7 @@ class PortfolioController extends AbstractController
      * @param FlashBagInterface $flashBag
      * @param AuthorizationCheckerInterface $authorizationChecker
      * @param CVRepository $cvRepository
+     * @param UserRepository $userRepository
      */
 
 
@@ -140,13 +141,14 @@ class PortfolioController extends AbstractController
         return $this->render('cv/createCV.html.twig', [
             'form' => $form->createView(),
         ]);
-
     }
 
     /**
      * @Route("/add", name="add_cv")
      * @Security("is_granted('ROLE_USER')")
      * @param Request $request
+     * @param TokenStorageInterface $tokenStorage
+     * @param EventDispatcherInterface $dispatcher
      * @return Response
      */
 
@@ -181,6 +183,7 @@ class PortfolioController extends AbstractController
     /**
      * @Route("/administrator", name="administrator")
      * @param Fetch $fetch
+     * @param TokenStorageInterface $tokenStorage
      * @return Response
      */
 
@@ -251,5 +254,24 @@ class PortfolioController extends AbstractController
         return new RedirectResponse($this->router->generate('home'));
     }
 
+    /**
+     * @Route("/portfolio", name="portfolio")
+     */
+
+    public function portfolio(Request $request) {
+
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $message = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($message);
+            $entityManager->flush();
+
+        }
+        return $this->render('portfolio/index.html.twig', array('form' => $form->createView()));
+    }
 
 }
