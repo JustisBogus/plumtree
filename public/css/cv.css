@@ -1,0 +1,129 @@
+.cv_componentContainer {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 70%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding-bottom:20px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.cv_componentContainer a {
+   text-decoration: none;
+}
+
+.cvView {
+    margin: 20px;
+}
+
+.cvUsername {
+    font-size: 24px;
+    font-weight: 100;
+    margin-left: 20px;
+}
+
+.cvFullName {
+    font-size: 24px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.cvDelete {
+    float: right;
+    margin: 0 20px 0 20px;
+}
+
+.cvEdit {
+    float: right;
+    margin: 0 20px 0 20px;
+}
+
+.cvAbout {
+    margin: 20px;
+}
+
+.cvItem {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cvFormContainer {
+    margin: 20px auto 100px auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color:#fff;
+    padding: 100px 20px 100px 20px;
+    border-radius:5px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.cvFormContainer input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    border-radius: 5px;
+    font-family: Avenir Helvetica sans-serif;
+    font-size: 14px;
+}
+
+.cvFormContainer textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    border-radius: 5px;
+    resize: none;
+    font-family: Avenir Helvetica sans-serif;
+    font-size: 14px;
+}
+
+.cvFormContainer Button {
+    margin: auto;
+    width: 100%;
+    height: 25px;
+    color: #3cbec7
+}
+
+.cvProfilePicture {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    width:200px;
+}
+
+.cvProfilePicture img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.cvFormName {
+    display:none;
+}
+
+.cvVisible {
+    margin: 0 20px 0 20px;
+    float: right;
+    color: #3cbec7;
+}
+
+.cvInvisible {
+    margin: 0 20px 0 20px;
+    float: right;
+    color:#2e86d2;
+}

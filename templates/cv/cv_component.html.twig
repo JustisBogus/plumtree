@@ -1,9 +1,21 @@
-<p><a href="{{ path('view_cv', {'id': cv.id}) }}">ID {{ cv.id }}</a></p>
+<div class="cv_componentContainer">
+    <div class="cvView">
+<p><a href="{{ path('view_cv', {'id': cv.id}) }}">View CV</a></p>
+    </div>
+    <div class="cvUsername">
 <a href="{{ path('cv_user', {'username' : cv.user.username}) }}">{{ cv.user.fullName }}</a>
-<p>{{ cv.about }}</p>
+    </div>
+    {% if is_granted('delete', cv ) %}
+        <div class="cvDelete">
+            <a href="{{ path('delete_cv', {'id': cv.id}) }}">Delete</a>
+        </div>
+    {% endif %}
         {% if is_granted('edit', cv ) %}
-<p><a href="{{ path('edit_cv', {'id': cv.id}) }}">Edit {{ cv.id }}</a></p>
+            <div class="cvEdit">
+            <a href="{{ path('edit_cv', {'id': cv.id}) }}">Edit</a>
+            </div>
         {% endif %}
-        {% if is_granted('delete', cv ) %}
-<p><a href="{{ path('delete_cv', {'id': cv.id}) }}">Delete {{ cv.id }}</a></p>
-        {% endif %}
+    <div class="cvAbout">
+    <p>{{ cv.about }}</p>
+    </div>
+</div>

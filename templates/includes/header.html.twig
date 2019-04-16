@@ -1,8 +1,9 @@
 <div class="header">
     <img class="logo" src="{{ asset('assets/punktl.png') }}" />
     {% if is_granted('ROLE_USER') %}
-        <a id="headerCreate" href="{{ path('add_cv') }}">{{ 'Create a new CV'|trans }}</a>
         <div id="headerLogout" class="headerLogout"><a href="{{ logout_path() }}">{{ 'Logout'|trans }}</a></div>
+        <div class="headerLogout"><a id="headerCreate"  href="{{ path('add_cv') }}">{{ 'Create a new CV'|trans }}</a></div>
+        <div class="headerLogout"><a id="headerProfile"  href="{{ path('profile') }}">{{ 'View My Profile'|trans }}</a></div>
         <div class="headerLogout">{{ app.user.username }}</div>
         {% else %}
             <div id="headerSignIn" class="headerLogout"><a href="{{ path('app_login') }}">{{ 'Sign In'|trans }}</a></div>

@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="cvFormContainer">
     {{ form_start(form) }}
-
+    <div class="cvFullName">
+        {{ user.fullName }}
+    </div>
+    <div class="cvFormName">
+    {{ form_widget(form.name) }}
+    </div>
     {{ form_widget(form) }}
 
     {{ form_end(form) }}
+    <div>
 {% endblock %}

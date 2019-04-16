@@ -6,6 +6,7 @@ namespace App\Form;
 
 use App\Entity\CV;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -13,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class CVType extends AbstractType
 {
@@ -126,6 +128,9 @@ class CVType extends AbstractType
                    'placeholder' => 'Write a few sentences about your skills'
                ]
            ])
+           ->add('active', CheckboxType::class, [
+                       'label' => 'make this CV visible',
+                        'required' => false])
            ->add('save', SubmitType::class);
 
 

@@ -29,6 +29,28 @@ class CVRepository extends ServiceEntityRepository
                 ->getResult();
     }
 
+    public function findMyCVs($userCVs)
+    {
+        $queryBuilder = $this->createQueryBuilder('cv');
+        return $queryBuilder->select('cv')->where('cv.user = :user')
+            ->setParameter('user', $userCVs)
+            ->orderBy('cv.id' ,'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findUserCVs($id)
+    {
+        $queryBuilder = $this->createQueryBuilder('cv');
+        return $queryBuilder->select('cv')->where('cv.user = :id')
+            ->setParameter('id', $id)
+            ->andWhere('cv.active = true')
+            ->orderBy('cv.id' ,'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     // /**
     //  * @return CV[] Returns an array of CV objects
     //  */

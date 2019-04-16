@@ -280,7 +280,7 @@ class CV
     }
 
     public function getSkills() {
-        return $this->education;
+        return $this->skills;
     }
 
     public function setSkills($skills)

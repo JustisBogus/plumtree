@@ -3,10 +3,72 @@
 {% block title %} CV {% endblock %}
 
 {% block body %}
-        <p>ID {{ cv.id }}</p>
-        <h3>{{ cv.name|upper }}</h3>
-        <p>{{ cv.about }}</p>
-        {{ 560|price }}
-        Here is the current locale {{ locale }}
-
+        <div class="cv_componentContainer">
+        <div class="cvItem">
+                <h3>{{ cv.name|upper }}</h3>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.email }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.address }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.phoneNumber }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.about }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobStart1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobEnd1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobTitle1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobDescription1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobStart2 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobEnd2 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobTitle2 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobDescription2 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobStart3 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobEnd3 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobTitle3 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobDescription3 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobStart1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobEnd1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.jobTitle1 }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.education }}</p>
+        </div>
+        <div class="cvItem">
+                <p>{{ cv.skills }}</p>
+        </div>
+        </div>
 {% endblock %}

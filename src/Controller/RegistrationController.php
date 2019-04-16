@@ -8,6 +8,7 @@ use App\Form\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,6 +18,11 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 class RegistrationController extends AbstractController
 {
+    private function generateUniqueFileName()
+    {
+        return md5(uniqid());
+    }
+
     /**
      * @Route("/register", name="app_register")
      * @param Request $request
@@ -39,10 +45,24 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-           // /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-           // $file = $user->getPicture();
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
-           // $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            // $file = $user->getPicture();
+            $file = $form->get('picture')->getData();
+
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('uploads_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+
+            $user->setPicture($fileName);
+
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(

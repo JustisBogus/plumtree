@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} CV {% endblock %}
+
+{% block body %}
+    <div class="cvProfilePicture">
+    <img src="{{ asset('uploads/' ~ user.picture) }}" />
+    </div>
+    {% for id, cv in cvs  %}
+        <div class="cv_componentContainer" >
+            <div class="cvItem">
+                {{ cv.about }}
+            </div>
+            {% if is_granted('delete', cv ) %}
+                <div class="cvDelete">
+                    <a href="{{ path('delete_cv', {'id': cv.id}) }}">Delete</a>
+                </div>
+            {% endif %}
+            {% if is_granted('edit', cv ) %}
+                <div class="cvEdit">
+                    <a href="{{ path('edit_cv', {'id': cv.id}) }}">Edit</a>
+                </div>
+            {% endif %}
+            {% if cv.active %}
+            <div class="cvVisible">
+                Visible
+            </div>
+            {% endif %}
+            {% if not cv.active %}
+                <div class="cvInvisible">
+                    Invisible
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

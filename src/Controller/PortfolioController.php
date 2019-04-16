@@ -119,8 +119,9 @@ class PortfolioController extends AbstractController
      * @return RedirectResponse|Response
      */
 
-    public function editCV($id, Request $request )
+    public function editCV($id, Request $request, TokenStorageInterface $tokenStorage )
     {
+        $user = $tokenStorage->getToken()->getUser();
         $cv = $this->getDoctrine()->getRepository(CV::class)->find($id);
 
         if (!$this->authorizationChecker->isGranted('edit', $cv)) {
@@ -140,6 +141,7 @@ class PortfolioController extends AbstractController
 
         return $this->render('cv/createCV.html.twig', [
             'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 
@@ -159,7 +161,8 @@ class PortfolioController extends AbstractController
         $user = $tokenStorage->getToken()->getUser();
         $cv = new CV();
         $cv->setUser($user);
-        $cv->setActive(true);
+        $fullName = $user->getFullName();
+        $cv->setName($fullName);
         $form = $this->createForm(CVType::class, $cv);
         $form->handleRequest($request);
 
@@ -176,6 +179,7 @@ class PortfolioController extends AbstractController
 
         return $this->render('cv/createCV.html.twig', [
             'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 
@@ -229,8 +233,9 @@ class PortfolioController extends AbstractController
 
     public function userCVS(User $userCVs)
     {
-        $cvs = $this->getDoctrine()->getRepository(CV::class)->
-        findBy(['user' => $userCVs],['id' => 'DESC']);
+
+        $cvs = $this->cvRepository->findUserCVs($userCVs);
+
         return $this->render('cv/index.html.twig',
             [
                 'cvs' => $cvs
@@ -273,5 +278,26 @@ class PortfolioController extends AbstractController
         }
         return $this->render('portfolio/index.html.twig', array('form' => $form->createView()));
     }
+
+    /**
+     * @Route("/profile", name="profile")
+     * @param TokenStorageInterface $tokenStorage
+     * @return Response
+     * @Security("is_granted('ROLE_USER')")
+     */
+
+    public function profile(TokenStorageInterface $tokenStorage) {
+
+        $user = $tokenStorage->getToken()->getUser();
+
+        $cvs = $this->cvRepository->findMyCVs($user);
+
+        return $this->render('cv/profile.html.twig',
+            [
+                'cvs' => $cvs,
+                'user' => $user
+            ]);
+    }
+
 
 }
