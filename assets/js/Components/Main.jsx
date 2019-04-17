@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Main.scss';
 import Cards from './Cards/Cards';
+import CVCreator from '../Components/CVCreator/CVCreator'
 
 
 class Main extends Component {
@@ -8,6 +9,9 @@ class Main extends Component {
         super(props);
 
         this.state = {
+
+            cvCreator: true,
+
             cards: [
                 {
                     cardNumber: 1,
@@ -81,33 +85,54 @@ class Main extends Component {
         }
     }
 
+    toggleContent() {
+            this.setState({cvCreator:true});
+        }
+
+
+
     render() {
 
-        let cards = this.state.cards.map(card => {
-            return <Cards key={card.cardNumber}
-                          cardNumber={card.cardNumber}
-                          title={card.title}
-                          descriptionTitle={card.descriptionTitle}
-                          client={card.client}
-                          project={card.project}
-                          technology1={card.technology1}
-                          technology2={card.technology2}
-                          technology3={card.technology3}
-                          description={card.description}
-                          tryLink={card.tryLink}
-                          githubLink1={card.githubLink1}
-                          githubLink2={card.githubLink2}
-                          color={card.color}
-                          style1={card.style1}
-                          style2={card.style2} />;
-        });
+        let content;
+        let title;
+
+            if (this.state.cvCreator) {
+
+                content = <CVCreator/>
+
+            } else {
+
+                title = <div>
+                    <div className="mainTitleName" > Justis </div>
+                    <div className="mainTitle"> Full stack developer, minimalist.</div>
+                        </div>
+
+             content = this.state.cards.map(card => {
+                    return <Cards key={card.cardNumber}
+                                  cardNumber={card.cardNumber}
+                                  title={card.title}
+                                  descriptionTitle={card.descriptionTitle}
+                                  client={card.client}
+                                  project={card.project}
+                                  technology1={card.technology1}
+                                  technology2={card.technology2}
+                                  technology3={card.technology3}
+                                  description={card.description}
+                                  tryLink={card.tryLink}
+                                  githubLink1={card.githubLink1}
+                                  githubLink2={card.githubLink2}
+                                  color={card.color}
+                                  style1={card.style1}
+                                  style2={card.style2}/>;
+                });
+            }
 
         return (
             <div>
-                <div className="mainTitleName" > Justis </div>
-                <div className="mainTitle"> Full stack developer, minimalist.</div>
+                <div onClick={() => this.toggleContent()} >CV creator</div>
+                    {title}
                 <div>
-                    {cards}
+                    {content}
                 </div>
             </div>
         );
