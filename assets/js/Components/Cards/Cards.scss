@@ -1,3 +1,6 @@
+$shadow : 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+$shadowSmall : 0 1px 1px 0px rgba(0, 0, 0, 0.1);
+
 .cardContainer {
   margin-top:40px;
   margin-bottom:40px;
@@ -22,26 +25,26 @@
   border: 1px solid #fff;
   border-radius: 10px;
   cursor:pointer;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
 }
 
 .card:hover {
-  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadowSmall;
+  -moz-box-shadow: $shadowSmall;
+  -webkit-box-shadow: $shadowSmall;
+  -o-box-shadow: $shadowSmall;
+  -ms-box-shadow: $shadowSmall;
 }
 
 .descriptionWrap {
   width: 50%;
 }
 
-.descriptionArea1 {
+.descriptionArea1, .descriptionArea2, .descriptionArea3, .descriptionArea4 {
   position:relative;
   width: 100%;
   border: 1px dotted #1f5fa5;
@@ -49,84 +52,42 @@
   height: 450px;
 }
 
-.descriptionArea1Flipped {
+.descriptionArea2 {
+  border: 1px dotted #2e86d2;
+}
+
+.descriptionArea3 {
+  border: 1px dotted #2da5c9;
+}
+
+.descriptionArea4 {
+  border: 1px dotted #3cbec7;
+}
+
+.descriptionArea1Flipped, .descriptionArea2Flipped, .descriptionArea3Flipped, .descriptionArea4Flipped   {
   position:relative;
   width: 100%;
   background-color:#fff;
   border: 1px solid #1f5fa5;
   border-radius: 10px;
   height: 450px;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.descriptionArea2 {
-  position:relative;
-  width: 100%;
-  border: 1px dotted #2e86d2;
-  border-radius: 10px;
-  height: 450px;
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
 }
 
 .descriptionArea2Flipped {
-  position:relative;
-  width: 100%;
-  background-color:#fff;
   border: 1px solid #2e86d2;
-  border-radius: 10px;
-  height: 450px;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.descriptionArea3 {
-  position:relative;
-  width: 100%;
-  border: 1px dotted #2da5c9;
-  border-radius: 10px;
-  height: 450px;
 }
 
 .descriptionArea3Flipped {
-  position:relative;
-  width: 100%;
-  background-color:#fff;
   border: 1px solid #2da5c9;
-  border-radius: 10px;
-  height: 450px;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.descriptionArea4 {
-  position:relative;
-  width: 100%;
-  border: 1px dotted #3cbec7;
-  border-radius: 10px;
-  height: 450px;
 }
 
 .descriptionArea4Flipped {
-  position:relative;
-  width: 100%;
-  background-color:#fff;
   border: 1px solid #3cbec7;
-  border-radius: 10px;
-  height: 450px;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .descriptionTitle {
@@ -138,16 +99,14 @@
   text-align:center;
 }
 
-.descriptionLinkTop {
-  margin-top:35px;
+.descriptionLinkTop, .descriptionLinkBottom  {
   font-weight:100;
   letter-spacing: 0.05em;
   cursor:pointer;
 }
-.descriptionLinkBottom {
-  font-weight:100;
-  letter-spacing: 0.05em;
-  cursor:pointer;
+
+.descriptionLinkTop {
+  margin-top:35px;
 }
 
 .descriptionText {
@@ -206,7 +165,6 @@
   .descriptionWrap {
    margin-left:3%;
   }
-
 }
 
 @media screen and (max-width: 1020px) {
@@ -225,27 +183,15 @@
   }
 
   .cardLinkTop {
-    display:block;
     margin-top:85px;
-    font-weight:100;
-    letter-spacing: 0.05em;
-    cursor:pointer;
   }
 
-  .cardLinkUsernamePassword {
+  .cardLinkUsernamePassword, .cardLinkBottom, .cardLinkTop {
     display:block;
     font-weight:100;
     letter-spacing: 0.05em;
     cursor:pointer;
   }
-
-  .cardLinkBottom {
-    display:block;
-    font-weight:100;
-    letter-spacing: 0.05em;
-    cursor:pointer;
-  }
-
 }
 
 

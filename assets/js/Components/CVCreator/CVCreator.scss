@@ -1,0 +1,43 @@
+$shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+.cvCreatorContainer {
+  margin: 20px auto 100px auto;
+  width: 70%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color:#fff;
+  padding: 20px 20px 100px 20px;
+  border-radius:5px;
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+}
+
+.cvCreatorTitle {
+  margin: 20px auto 50px auto;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.cvCreatorContainer input, textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #f2f2f2;
+  border-radius: 5px;
+  font-family: Avenir Helvetica sans-serif;
+  font-size: 14px;
+}
+
+.cvCreatorContainer textarea {
+  resize: none;
+}
+
+.cvCreatorOrderNumber {
+  text-align:center;
+  margin:20px auto 0 auto;
+}

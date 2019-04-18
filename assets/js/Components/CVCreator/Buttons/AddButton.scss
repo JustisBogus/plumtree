@@ -1,0 +1,36 @@
+$shadow : 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+$shadowSmall : 0 1px 1px 0px rgba(0, 0, 0, 0.1);
+
+.addButtonWrap {
+  width:50%;
+  margin:auto;
+}
+
+.addButton {
+  height: 35px;
+  background-color: #fff;
+  margin:20px;
+  line-height:40px;
+  text-align: center;
+  border: 1px solid #aaf0d1;
+  border-radius:5px;
+  padding-top:0px;
+  font-size:24px;
+  font-weight:100;
+  cursor:pointer;
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  &:hover {
+    box-shadow: $shadowSmall;
+    -moz-box-shadow: $shadowSmall;
+    -webkit-box-shadow: $shadowSmall;
+    -o-box-shadow: $shadowSmall;
+    -ms-box-shadow: $shadowSmall;
+    }
+}
+
+
+

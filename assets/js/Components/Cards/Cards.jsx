@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import './Cards.scss';
-import Gymapp1 from '../screenshots/gymapp1';
-import Gymapp2 from '../screenshots/gymapp2';
-import Offers from '../screenshots/offers';
-import Habits1 from '../screenshots/habits1';
-import Habits2 from '../screenshots/habits2';
-import Addressbook from '../screenshots/addressbook';
-
-
+import Screenshots from '../screenshots/Screenshots';
 
 class Cards extends Component {
     constructor (props) {
@@ -44,30 +37,6 @@ class Cards extends Component {
 
     render() {
 
-        let screenshot
-
-        if (this.props.cardNumber === 1) {
-            screenshot = <div>
-                        <Gymapp1/>
-                        <Gymapp2/>
-                        </div>
-        }
-
-        if (this.props.cardNumber === 2) {
-            screenshot = <Offers/>
-        }
-
-        if (this.props.cardNumber === 3) {
-            screenshot = <div>
-                        <Habits1/>
-                        <Habits2/>
-                        </div>
-        }
-
-        if (this.props.cardNumber === 4) {
-            screenshot = <Addressbook/>
-        }
-
         let card;
         let description;
 
@@ -85,17 +54,18 @@ class Cards extends Component {
                     <div style={{color:this.props.color}}
                          className="cardTextTitle">Technologies Used</div>
                     <div>
-                        <div className="cardText">{this.props.technology1}</div>
-                        <div className="cardText">{this.props.technology2}</div>
-                        <div className="cardText">{this.props.technology3}</div>
+                        {this.props.technology.map(technology => {
+                            return <div className="cardText" key={technology.id}>
+                                {technology.value}</div>
+                    })}
                     </div>
                 </div>
             </div>
 
-            description = <div className={this.props.style2}>
+            description = <div className={this.props.className2}>
                 <div className="descriptionText">{this.props.description}</div>
                 <div className="screenshots">
-                    {screenshot}
+                   <Screenshots screenshot={this.props.cardNumber}/>
                 </div>
                 <div style={{color:this.props.color}}  className="descriptionLinkTop"
                      onClick={() => this.onTryItLink()}>Try It</div>
@@ -110,11 +80,10 @@ class Cards extends Component {
             </div>
 
             description = <div style={{color:this.props.color}}
-                               className={this.props.style1}>
+                               className={this.props.className1}>
                 <div style={{color:this.props.color}}
                      className="descriptionTitle">{this.props.descriptionTitle}</div>
             </div>
-
         }
 
         return (

@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
 import './CVCreator.scss';
 import { connect } from 'react-redux';
-import { addName,
-         addEmail,
-         addAddress,
-         addAbout,
-         addJob,
-         deleteJob,
-         addStartYear,
-         addStopYear,
-         addJobTitle,
-         addJobDescription,
-         addSkill,
-         deleteSkill,
-         addSkillTitle,
-         addEducation,
-         deleteEducation,
-         addEducationStartYear,
-         addEducationStopYear,
-         addEducationTitle
+import { addName, addEmail, addAddress, addAbout, addJob,
+         deleteJob, addStartYear, addStopYear, addJobTitle,
+         addJobDescription, addSkill, deleteSkill, addSkillTitle,
+         addEducation, deleteEducation, addEducationStartYear,
+         addEducationStopYear, addEducationTitle
             } from '../../store/actions/cv';
 import Job from './Job/Job';
 import Skill from './Skill/Skill';
 import Education from './Education/Education';
+import About from '../CVCreator/About/About';
+import AddButton from './Buttons/AddButton';
 
 
 
@@ -31,7 +20,8 @@ class CVCreator extends Component {
         super(props);
 
         this.state = {
-                    errorMessage:''
+                    buttonActive: false,
+                    errorMessage:'',
                     }
     }
 
@@ -254,36 +244,28 @@ class CVCreator extends Component {
         }
     }
 
-
-
-
     render() {
 
-        let addJob;
+
+        let addJobButton;
 
         if (this.props.cv.name !== '') {
 
-            addJob = <div className="">
-                <div className="" onClick={() => this.onAddJob()}>Add Job</div>
-            </div>
+            addJobButton = <AddButton onClick={() => this.onAddJob()} title={'job'}/>
         }
 
-        let addSkill;
+        let addSkillButton;
 
         if (this.props.cv.name !== '') {
 
-            addSkill = <div className="">
-                <div className="" onClick={() => this.onAddSkill()}>Add Skill</div>
-            </div>
+            addSkillButton = <AddButton onClick={() => this.onAddSkill()} title={'Skill'}/>
         }
 
-        let addEducation;
+        let addEducationButton;
 
         if (this.props.cv.name !== '') {
 
-            addEducation = <div className="">
-                <div className="" onClick={() => this.onAddEducation()}>Add Education</div>
-            </div>
+            addEducationButton = <AddButton onClick={() => this.onAddEducation()} title={'Education'}/>
         }
 
         let job;
@@ -337,39 +319,19 @@ class CVCreator extends Component {
         }
 
         return (
-            <div>
-
-                <div className="mainTitleName" > Create Your CV </div>
-                <div>
-                    <input placeholder="Enter Your Name" onChange={(event) => this.handleNameInput(event.target.value)} name="name"
-                           value={this.props.name}
-                           className="nameInput" id="name" />
-                </div>
-                <div>
-                    <input placeholder="Enter Your Email" onChange={(event) => this.handleEmailInput(event.target.value)} name="email"
-                           value={this.props.address}
-                           className="emailInput" id="email" />
-                </div>
-                <div>
-                    <input placeholder="Enter Your Address" onChange={(event) => this.handleAddressInput(event.target.value)} name="address"
-                           value={this.props.address}
-                           className="addressInput" id="address" />
-                </div>
-                <div>
-                    <textarea placeholder="Write a few words about yourself" onChange={(event) => this.handleAboutInput(event.target.value)} name="about"
-                           value={this.props.address}
-                           className="aboutInput" id="about" />
-                </div>
-                <div>{this.state.errorMessage}</div>
-                <div>
+            <div className="cvCreatorContainer">
+                    <About handleNameInput={this.handleNameInput.bind(this)}
+                           handleEmailInput={this.handleEmailInput.bind(this)}
+                           handleAddressInput={this.handleAddressInput.bind(this)}
+                           handleAboutInput={this.handleAboutInput.bind(this)}
+                           errorMessage={this.state.errorMessage}/>
                     {job}
-                    {addJob}
+                    {addJobButton}
                     {skill}
-                    {addSkill}
+                    {addSkillButton}
                     {education}
-                    {addEducation}
+                    {addEducationButton}
                 </div>
-            </div>
         );
     }
 }

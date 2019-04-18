@@ -3,6 +3,7 @@
 {% block title %} CV {% endblock %}
 
 {% block body %}
+        <div class="contentContainer">
         <div class="cv_componentContainer">
         <div class="cvItem">
                 <h3>{{ cv.name|upper }}</h3>
@@ -69,6 +70,7 @@
         </div>
         <div class="cvItem">
                 <p>{{ cv.skills }}</p>
+        </div>
         </div>
         </div>
 {% endblock %}

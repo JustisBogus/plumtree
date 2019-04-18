@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeleteButton from '../Buttons/DeleteButton';
 
 
 class Job extends Component {
@@ -15,7 +16,7 @@ class Job extends Component {
 
         return (
             <div>
-                <div> {this.props.orderNumber} </div>
+                <div className="cvCreatorOrderNumber"> {this.props.orderNumber} </div>
                 <div>
                     <input placeholder="Year you started working" onChange={(event) => this.props.handleYearInput(event.target.value, event.target.name, this.props.orderNumber)} name="startYear"
                            value={this.props.startYear}
@@ -36,7 +37,7 @@ class Job extends Component {
                               value={this.props.jobDescription}
                               className="descriptionInput" id="description" />
                 </div>
-                <div onClick={() => this.props.onDeleteJob(this.props.orderNumber)} className="jobDelete">Delete Job</div>
+                <DeleteButton onClick={() => this.props.onDeleteJob(this.props.orderNumber)} title={"job"} />
             </div>
         );
     }

@@ -1,0 +1,21 @@
+.deleteButtonWrap {
+  width:100%;
+  margin:auto;
+}
+
+.deleteButton {
+  height: 20px;
+  background-color: #fff;
+  margin:20px;
+  line-height:20px;
+  text-align: center;
+  border-bottom: 1px solid #d92121;
+  border-radius:5px;
+  padding-top:0px;
+  font-size:14px;
+  font-weight:100;
+  cursor:pointer;
+  &:hover {
+   color:#d92121;
+  }
+}
