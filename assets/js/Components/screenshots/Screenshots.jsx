@@ -39,3 +39,51 @@ const Screenshot = props => {
 }
 
 export default Screenshot;
+
+
+/*
+export const Gymapp = props => {
+    return <React.Fragment> <div className="gymapp">
+        <img src={Gymapp1} alt="gymapp"/></div>
+        <div className="gymapp">
+            <img src={Gymapp2} alt="gymapp"/>
+        </div>
+    </React.Fragment>
+}
+
+export const Offers = props => {
+    return <div className="offers">
+        <img src={Offers1} alt="offers"/>
+    </div>
+}
+
+export const Habits = props => {
+    return <React.Fragment> <div className="habits">
+        <img src={Habits1} alt="habits"/>
+    </div>
+        <div className="habits">
+            <img src={Habits2} alt="habits"/>
+        </div>
+    </React.Fragment>
+}
+
+export const Adressbook = props => {
+    return <div className="addressbook">
+        <img src={Addressbook} alt="addressbook"/>
+    </div>
+}
+*/
+
+/*
+const Screenshot = props => {
+    return <React.Fragment> <div className="{screenshotClass1">
+        <img src={props.screenshot1} alt="screenshot"/></div>
+        <div className="{screenshotClass2}">
+            <img src={screenshot2} alt="screenshot"/>
+        </div>
+    </React.Fragment>
+}
+
+export default Screenshot;
+
+ */

@@ -16,7 +16,7 @@ class Education extends Component {
 
         return (
             <div>
-                <div className="cvCreatorOrderNumber"> {this.props.orderNumber} </div>
+                <div className="cvCreatorOrderNumber"> {this.props.orderNumber + 1} </div>
                 <div>
                     <input placeholder="Year you started studying" onChange={(event) => this.props.handleEducationYearInput(event.target.value, event.target.name, this.props.orderNumber)} name="startYear"
                            value={this.props.startYear}

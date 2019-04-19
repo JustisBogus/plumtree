@@ -4,7 +4,6 @@
     <div class="messagesContainer">
     <div class="messagesWrap">
     {% if users %}
-
         {% for user in users %}
             <div class="messageWrap">
                 <div class = "messageName"> {{ user.username }}</div>
@@ -16,5 +15,8 @@
         <p>There are no users</p>
     {% endif %}
     </div>
+    <div class="paginationContainer">
+    {{ knp_pagination_render(users) }}
+    <div/>
     <div>
 {% endblock %}

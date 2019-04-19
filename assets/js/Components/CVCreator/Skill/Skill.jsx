@@ -16,7 +16,7 @@ class Skill extends Component {
 
         return (
             <div>
-                <div className="cvCreatorOrderNumber" > {this.props.orderNumber} </div>
+                <div className="cvCreatorOrderNumber" > {this.props.orderNumber + 1} </div>
                 <div>
                     <input placeholder="Skill" onChange={(event) => this.props.handleSkillTitleInput(event.target.value, this.props.orderNumber)} name="skillTitle"
                            value={this.props.jobTitle}

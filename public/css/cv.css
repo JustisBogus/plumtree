@@ -127,3 +127,7 @@
     float: right;
     color:#2e86d2;
 }
+
+.paginationContainer {
+    margin:auto;
+}

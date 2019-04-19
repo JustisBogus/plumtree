@@ -16,7 +16,7 @@ class Job extends Component {
 
         return (
             <div>
-                <div className="cvCreatorOrderNumber"> {this.props.orderNumber} </div>
+                <div className="cvCreatorOrderNumber"> {this.props.orderNumber + 1} </div>
                 <div>
                     <input placeholder="Year you started working" onChange={(event) => this.props.handleYearInput(event.target.value, event.target.name, this.props.orderNumber)} name="startYear"
                            value={this.props.startYear}

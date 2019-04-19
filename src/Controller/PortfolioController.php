@@ -6,26 +6,21 @@ use App\Entity\CV;
 use App\Entity\Message;
 use App\Entity\User;
 use App\Events\cvCreatedEvent;
-use App\Events\MessageSentEvent;
 use App\Form\CVType;
 use App\Form\MessageType;
 
 use App\Repository\CVRepository;
 use App\Repository\UserRepository;
-use App\Services\Greeting;
 use App\Services\Fetch;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Repository\RepositoryFactory;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -98,11 +93,16 @@ class PortfolioController extends AbstractController
 
     /**
      * @Route("/", name="home")
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return Response
      */
-    public function actionIndex(Request $request)
+    public function actionIndex(Request $request, PaginatorInterface $paginator)
     {
 
-        $cvs = $this->cvRepository->findAllCVs();
+        $cvsQuery = $this->cvRepository->findAllCVs();
+
+        $cvs = $paginator->paginate($cvsQuery, $request->query->getInt('page', 1), 5);
 
         //$cvs = $this->getDoctrine()->getRepository(CV::class)->findBy([],['id' => 'DESC']);
 
@@ -116,6 +116,7 @@ class PortfolioController extends AbstractController
      * @Route("/edit/{id}", name="edit_cv")
      * @param $id
      * @param Request $request
+     * @param TokenStorageInterface $tokenStorage
      * @return RedirectResponse|Response
      */
 
@@ -186,16 +187,22 @@ class PortfolioController extends AbstractController
 
     /**
      * @Route("/administrator", name="administrator")
+     * @param Request $request
      * @param Fetch $fetch
      * @param TokenStorageInterface $tokenStorage
+     * @param PaginatorInterface $paginator
      * @return Response
      */
 
-    public function getAdministrator(Fetch $fetch, TokenStorageInterface $tokenStorage) {
+    public function getAdministrator(Request $request, Fetch $fetch,
+                                     TokenStorageInterface $tokenStorage,
+                                     PaginatorInterface $paginator) {
 
         $user = $tokenStorage->getToken()->getUser();
 
-        $users = $this->userRepository->findAllUsersExceptAdmin($user);
+        $usersQuery = $this->userRepository->findAllUsersExceptAdmin($user);
+
+        $users = $paginator->paginate($usersQuery, $request->query->getInt('page', 1), 5);
 
         return $this->render('portfolio/administrator.html.twig', [
             'users' => $users
@@ -261,6 +268,8 @@ class PortfolioController extends AbstractController
 
     /**
      * @Route("/portfolio", name="portfolio")
+     * @param Request $request
+     * @return Response
      */
 
     public function portfolio(Request $request) {
